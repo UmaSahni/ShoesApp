@@ -1,6 +1,6 @@
 import axios from "axios"
 import AlertBox from "../../Components/AlertBox"
-import { ADD_PRODUCT_FAILURE, ADD_PRODUCT_REQUEST, ADD_PRODUCT_SUCCESS } from "./actionTypes"
+import { ADD_PRODUCT_FAILURE, ADD_PRODUCT_REQUEST, ADD_PRODUCT_SUCCESS, Get_Product_Success } from "./actionTypes"
 
 export const AddProduct = (productData) => (dispatch)=> {
     dispatch({type:ADD_PRODUCT_REQUEST})
@@ -12,4 +12,14 @@ export const AddProduct = (productData) => (dispatch)=> {
         
     })
     .catch((err)=>dispatch({type:ADD_PRODUCT_FAILURE}))
+}
+
+
+export const getProduct = (dispatch) =>{
+    dispatch({type: ADD_PRODUCT_REQUEST})
+    axios.get("http://localhost:8080/products")
+    .then((res)=>{
+        dispatch({type:Get_Product_Success, payload:res.data})
+    })
+    .catch(()=>dispatch({type:ADD_PRODUCT_FAILURE}))
 }
