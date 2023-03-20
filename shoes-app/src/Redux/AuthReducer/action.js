@@ -3,7 +3,7 @@ import { FAILURE_LOGIN, REQUEST_LOGIN, SUCCESS_LOGIN } from "./actionTypes"
 
 export const LoginFun = (userData) => (dispatch) => {
     dispatch({ type: REQUEST_LOGIN })
-    axios
+ return   axios
     .post("https://reqres.in/api/login", userData)
     .then((res) => {
             console.log(res)

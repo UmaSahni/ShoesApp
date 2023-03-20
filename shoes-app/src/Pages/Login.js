@@ -14,19 +14,25 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { LoginFun } from '../Redux/AuthReducer/action';
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const location = useLocation()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const isAuthTrue = useSelector((store)=>store.authReducer
-  )
-  console.log(isAuthTrue)
+  
+  const isAuthTrue = useSelector((store)=>store.authReducer)
+  
   const handleClick = () =>{
     const obj = {email, password}
-    dispatch(LoginFun(obj))
+    dispatch(LoginFun(obj)).then((res)=> navigate(location.state)  )
   }
+
+
+
   return (
     <Flex
       minH={'100vh'}

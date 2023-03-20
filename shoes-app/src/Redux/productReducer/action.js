@@ -15,9 +15,13 @@ export const AddProduct = (productData) => (dispatch)=> {
 }
 
 
-export const getProduct = (dispatch) =>{
+export const getProduct =(paramobj) => (dispatch) =>{
     dispatch({type: ADD_PRODUCT_REQUEST})
-    axios.get("http://localhost:8080/products")
+    axios.get("http://localhost:8080/products", {
+        params: {
+            gender:paramobj
+        }
+    })
     .then((res)=>{
         dispatch({type:Get_Product_Success, payload:res.data})
     })

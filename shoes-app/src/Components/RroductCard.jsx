@@ -1,5 +1,6 @@
 import { Box, Button, ButtonGroup, Card, CardBody, CardFooter,useBreakpointValue, Container, Divider, GridItem, Heading, Image, SimpleGrid, Stack, Text, Center } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RroductCard = ({title,image, price, brand, discount, gender , id }) => {
    
@@ -36,9 +37,11 @@ const RroductCard = ({title,image, price, brand, discount, gender , id }) => {
   <Divider />
   <CardFooter>
     <ButtonGroup spacing='2'>
+      <Link to="/edit" >
       <Button variant='solid' colorScheme='blue'>
        Edit Now
       </Button>
+      </Link>
       <Button variant='ghost' colorScheme='blue'>
         See More
       </Button>
