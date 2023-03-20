@@ -8,13 +8,20 @@ import RroductCard from './RroductCard'
 const ProductList = () => {
   const [searchparam] = useSearchParams()
   const location = useLocation()
-  console.log(location.search)
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const product = useSelector((store)=> store.productReducer.product)
-//   const columnSize = useBreakpointValue({ base: '1fr', md: '2fr', lg: '1fr 1fr 1fr 1fr 1fr' });
-  console.log(searchparam.getAll("category"))
-useEffect(()=>{
-    dispatch(getProduct(searchparam.getAll("category")))
+
+  // console.log(searchparam.getAll("category"))
+  const obj = {
+    params :{
+      gender:searchparam.getAll("category"),
+      _sort :  searchparam.get("order") && "price",
+      _order : searchparam.get("order")
+    }
+  }
+  
+  useEffect(()=>{
+    dispatch(getProduct(obj))
   },[location.search])
   
     return (

@@ -37,7 +37,7 @@ const RroductCard = ({title,image, price, brand, discount, gender , id }) => {
   <Divider />
   <CardFooter>
     <ButtonGroup spacing='2'>
-      <Link to="/edit" >
+      <Link to={`/product/${id}`} >
       <Button variant='solid' colorScheme='blue'>
        Edit Now
       </Button>

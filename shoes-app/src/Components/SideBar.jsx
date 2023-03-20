@@ -1,9 +1,11 @@
+import { Heading } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 const SideBar = () => {
   const [searchParam, setSearchParam] = useSearchParams()
   const [category, setCatogry] = useState(searchParam.getAll("category") || []) // ["male, female"]
+ const [order, setOrder] = useState("")
   const handleChange = (e) =>{
   let newCategory = [...category];
   const value = e.target.value
@@ -21,9 +23,18 @@ const SideBar = () => {
     const Paramobj = {
       category
     }
-  setSearchParam(Paramobj)
-  },[category])
- console.log(searchParam.getAll("category"), "This is getAll")
+    order && (Paramobj.order = order)
+    
+    setSearchParam(Paramobj)
+  },[category, order])
+
+ 
+const handleSort = (e) =>{
+setOrder(e.target.value)
+}
+
+
+//  console.log(searchParam.getAll("category"), "This is getAll")
   return (
     <div>
       <h3> <b>Filter By</b> </h3>
@@ -38,6 +49,22 @@ const SideBar = () => {
           <input type="checkbox"  value={"Kids"} onChange={handleChange} checked={category.includes("Kids")} ></input>
           <label>Kids</label>
         </div>
+      </div>
+      <br></br>
+      <br/>
+      <div>
+       <Heading size={"sm"} >Sort by price</Heading>
+        <div onChange={handleSort} >
+        <div  >
+        <input name='order' defaultChecked={order==="asc"}   value={"acs"} type="radio"  />
+        <label>Asc</label>
+        </div>
+      
+      <div>
+        <input name='order' defaultChecked={order==="desc"}  value={"desc"} type="radio"  />
+        <label >Dec</label>
+      </div>
+      </div>
       </div>
     </div>
   )

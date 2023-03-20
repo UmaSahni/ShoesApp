@@ -14,7 +14,7 @@
       "price": 199,
       "brand": "Denill",
       "discount": "5",
-      "title": "Peach Casual",
+      "title": "Peach Casual-2",
       "gender": "Women",
       "id": 2
     },
@@ -89,7 +89,15 @@
       "title": "Kids Shoes for Winter",
       "gender": "Kids",
       "id": 10
+    },
+    {
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQcBxGDYo-0SAc6Rv0yYYla3f9EmBPlQWI0MMkiJR4JGhPBsbmtiLt9RKtrNPFJOY6sCfcc9PPVIbxRrbLyaa9d21jMNlSQX_pWlqZpNN2SMf7l0umnIrcXKABA1sGJ&usqp=CAE",
+      "price": "1499",
+      "brand": "Adidas",
+      "discount": "12",
+      "title": "Shoes for Men",
+      "gender": "Men",
+      "id": 11
     }
-    
   ]
 }
